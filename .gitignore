@@ -23,5 +23,7 @@ persistence.xml
 pu.properties
 # Local test database
 pu_integration_test.properties
+# pom file
+pom.xml
 
 /nbproject/
