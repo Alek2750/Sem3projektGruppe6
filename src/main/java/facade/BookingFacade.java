@@ -15,11 +15,9 @@ import javax.persistence.EntityManagerFactory;
  */
 public class BookingFacade {
 
-    public class CustomerFacade {
-
         EntityManagerFactory emf;
 
-        public CustomerFacade(EntityManagerFactory emf) {
+        public BookingFacade(EntityManagerFactory emf) {
             this.emf = emf;
         }
 
@@ -27,6 +25,22 @@ public class BookingFacade {
             return emf.createEntityManager();
         }
 
+        
+        public Booking deleteBookingByID(int id) {
+        EntityManager em = emf.createEntityManager();
+        
+        try {
+            em.getTransaction().begin();
+            Booking b = em.find(Booking.class, id);
+            em.remove(b);
+            em.getTransaction().commit();
+            return b;
+        } finally {
+            em.close();
+        }
+
+    }
+        
         //    public class CustomerFacade {
 //  EntityManagerFactory emf;
 //
@@ -49,21 +63,5 @@ public class BookingFacade {
 //      em.close();
 //    }
 //  }
-        
-        public Booking deleteBookingByID(int id) {
-        EntityManager em = emf.createEntityManager();
-        
-        try {
-            em.getTransaction().begin();
-            Booking b = em.find(Booking.class, id);
-            em.remove(b);
-            em.getTransaction().commit();
-            return b;
-        } finally {
-            em.close();
-        }
+    }
 
-    }
-        
-    }
-}
