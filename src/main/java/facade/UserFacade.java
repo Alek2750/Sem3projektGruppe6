@@ -6,9 +6,6 @@ import javax.persistence.EntityManagerFactory;
 import exceptions.AuthenticationException;
 import utils.PuSelector;
 
-/**
- * @author lam@cphbusiness.dk
- */
 public class UserFacade {
   
     private static EntityManagerFactory emf;
