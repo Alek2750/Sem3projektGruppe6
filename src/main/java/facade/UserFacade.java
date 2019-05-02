@@ -6,7 +6,9 @@ import javax.persistence.EntityManagerFactory;
 import exceptions.AuthenticationException;
 import utils.PuSelector;
 
-
+/**
+ * @author lam@cphbusiness.dk
+ */
 public class UserFacade {
   
     private static EntityManagerFactory emf;
@@ -28,7 +30,7 @@ public class UserFacade {
         try {
             user = em.find(User.class, username);
             if (user == null || !user.verifyPassword(password)) {
-                throw new AuthenticationException("Invalid username or password");
+                throw new AuthenticationException("Invalid user name or password");
             }
         } finally {
             em.close();

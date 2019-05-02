@@ -13,7 +13,6 @@ import javax.persistence.EntityManagerFactory;
  */
 public class CarFacade {
 
-    //private static CarFacade instance;
     private static EntityManagerFactory emf;
 
     public List<Car> getAllCars() {
@@ -28,7 +27,6 @@ public class CarFacade {
             em.close();
         }
     }
-
 
     public Car getCarByID(int id) {
         EntityManager em = emf.createEntityManager();
@@ -59,7 +57,7 @@ public class CarFacade {
         }
 
     }
-    //    public class CustomerFacade {
+//    public class CustomerFacade {
 //  EntityManagerFactory emf;
 //
 //  public CustomerFacade(EntityManagerFactory emf) {
