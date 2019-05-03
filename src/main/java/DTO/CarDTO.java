@@ -38,7 +38,7 @@ public class CarDTO {
         this.seats = car.getSeats();
         this.doors = car.getDoors();
         this.price = car.getPrice();
-        this.locationId = car.getLocationId().getLocation();
+        //this.locationId = car.getLocationId().getLocation();
     }
     
     

@@ -1,5 +1,6 @@
 package rest;
 
+import DTO.CarDTO;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import entity.Car;
@@ -38,7 +39,7 @@ Gson gson = new GsonBuilder().setPrettyPrinting().create();
   @Produces(MediaType.APPLICATION_JSON)
   public String allCars() {
     EntityManager em = PuSelector.getEntityManagerFactory("pu").createEntityManager();
-      List<Car> cars = new CarFacade().getAllCars();
+      List<CarDTO> cars = new CarFacade().getAllCars();
       return gson.toJson(cars);
  
   }

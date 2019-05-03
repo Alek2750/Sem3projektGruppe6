@@ -1,5 +1,6 @@
 package facade;
 
+import DTO.CarDTO;
 import entity.Car;
 import entity.Location;
 import java.util.ArrayList;
@@ -17,17 +18,23 @@ public class CarFacade {
     
     public static void main(String[] args) {
        new CarFacade().getCarByID(1);
-        System.out.println(new CarFacade().getCarByID(1));
+        System.out.println(new CarFacade().getAllCars());
     }
 
     private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu");
 
-    public List<Car> getAllCars() {
+    public List<CarDTO> getAllCars() {
         EntityManager em = emf.createEntityManager();
         List<Car> c = new ArrayList();
+        List<CarDTO> cDTO = new ArrayList();
         try {
             c = em.createNamedQuery("Car.findAll").getResultList();
-            return c;
+            for (int i = 0; i < c.size(); i++) {
+                Car car = c.get(i);
+                CarDTO c2 = new CarDTO(car);
+                cDTO.add(c2);
+            }
+            return cDTO;
         } finally {
             em.close();
         }
