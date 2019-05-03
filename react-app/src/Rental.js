@@ -1,14 +1,100 @@
 import React, { Component } from "react"
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import BootstrapTable from 'react-bootstrap-table-next';
+import 'react-bootstrap-table2-filter/dist/react-bootstrap-table2-filter.min.css';
+import filterFactory, { textFilter, multiSelectFilter, numberFilter, selectFilter } from 'react-bootstrap-table2-filter';
+import paginationFactory from 'react-bootstrap-table2-paginator';
 
+const URL = "https://accaroli.com/jwtbackend/api/cars"; //Indsæt URL for API
+
+const fuelOptions = {
+    0: 'gas',
+    1: 'diesel',
+    2: 'electricity',
+    3: 'hybrid'
+};
+
+const gearOptions = {
+    0: 'shift',
+    1: 'auto',
+};
+
+const labels = [{
+    dataField: 'numberplate',
+    text: 'number plate',
+    sort: true,
+    filter: textFilter()
+}, {
+    dataField: 'brand',
+    text: 'Brand',
+    sort: true,
+    filter: textFilter()
+}, {
+    dataField: 'fueltype',
+    text: 'fueltype',
+    formatter: cell => fuelOptions[cell],
+    filter: selectFilter({
+        options: fuelOptions
+    })
+}, {
+    dataField: 'gear',
+    text: 'Gear',
+    formatter: cell => gearOptions[cell],
+    filter: selectFilter({
+        options: gearOptions
+    })
+}, {
+    dataField: 'year',
+    text: 'year-Model',
+    sort: true,
+    filter: textFilter()
+}, {
+    dataField: 'cartype',
+    text: 'Cartype',
+    sort: true,
+    filter: textFilter()
+}, {
+    dataField: 'seats',
+    text: 'Seats',
+    sort: true,
+    filter: textFilter()
+}, {
+    dataField: 'doors',
+    text: 'Doors',
+    sort: true,
+    filter: textFilter()
+}, {
+    dataField: 'price',
+    text: 'Price',
+    sort: true,
+    filter: textFilter()
+}];
 
 class Rental extends Component {
+    state = { cars: [], msg: "" }
+    async componentDidMount() {
+
+        this.setState({ msg: "Loading..." });
+        const residence = await
+            fetch(URL).then(res => res.json());
+
+        this.setState({ residence, msg: "" });
+    }
+
     render() {
-        return (
-                <div>
-                    <h1>TODO make a data list with cars from the database</h1>
-                    <p>It should fetch from our API endpoint(TODO)</p>
-                </div>
-        );
+
+        return <div>
+            <BootstrapTable
+                striped
+                hover
+                bootstrap4
+                keyField='id'
+                data={this.state.cars}
+                columns={labels}
+                filter={filterFactory()}
+                pagination={paginationFactory()}
+            />
+        </div>
     }
 }
 
