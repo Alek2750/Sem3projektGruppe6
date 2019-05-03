@@ -1,8 +1,10 @@
 package rest;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import entity.Car;
 import entity.User;
+import facade.CarFacade;
 import java.util.List;
 import javax.annotation.security.RolesAllowed;
 import javax.persistence.EntityManager;
@@ -20,6 +22,7 @@ import utils.PuSelector;
  */
 @Path("cars")
 public class CarResource {
+Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
   @Context
   private UriInfo context;
@@ -30,15 +33,10 @@ public class CarResource {
   //verify if the database is setup
   @GET
   @Produces(MediaType.APPLICATION_JSON)
-  @Path("all")
   public String allCars() {
     EntityManager em = PuSelector.getEntityManagerFactory("pu").createEntityManager();
-    try{
-      List<Car> cars = em.createQuery("select cars from Car car").getResultList();
-      return "["+cars.size()+"]";
-    } finally {
-      em.close();
-    }
+      List<Car> cars = new CarFacade().getAllCars();
+      return gson.toJson(cars);
  
   }
 
