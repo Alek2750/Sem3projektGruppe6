@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Redirect, Link, NavLink, Route, Switch } from "react-router-dom";
 import Login, {fakeAuth} from "./Login";
+import Home from "./Home"
+import Rental from "./Rental"
 import './App.css';
 
 class App extends Component {
@@ -13,6 +15,9 @@ class App extends Component {
               <NavLink exact to="/">Home</NavLink>
             </li>
             <li>
+              <NavLink to="/rental">Car Rental</NavLink>
+            </li>
+            <li>
               <NavLink to="/login">Login</NavLink>
             </li>
             <li>
@@ -23,6 +28,7 @@ class App extends Component {
 
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/rental" component={Rental} />
           <Route path="/login" component={Login} />
           <PrivateRoute path="/admin" component={Admin} />
         </Switch>
@@ -32,11 +38,11 @@ class App extends Component {
 }
 
 //Home component
-const Home = props => (
+/*const Home = props => (
   <div>
     <h2>Home {console.log(props)}</h2>
   </div>
-);
+);*/
 
 //Admin component
 const Admin = ({ match }) => {
