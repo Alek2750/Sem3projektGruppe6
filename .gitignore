@@ -17,8 +17,6 @@ nb-configuration
 # Derby Test Database
 derby.log
 
-# DATABASE
-persistence.xml
 # Local development Database
 pu.properties
 # Local test database
