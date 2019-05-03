@@ -33,6 +33,7 @@ public class LocationFacade {
         }
     }
     
+    //getLocationByCarID??
     public Location getLocationByID(int id) {
         EntityManager em = emf.createEntityManager();
 

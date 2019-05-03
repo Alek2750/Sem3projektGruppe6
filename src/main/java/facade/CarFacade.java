@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  *
@@ -13,15 +14,19 @@ import javax.persistence.EntityManagerFactory;
  */
 public class CarFacade {
 
-    private static EntityManagerFactory emf;
+    
+    public static void main(String[] args) {
+       new CarFacade().getAllCars();
+        System.out.println(new CarFacade().getAllCars());
+    }
+
+    private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu");
 
     public List<Car> getAllCars() {
         EntityManager em = emf.createEntityManager();
         List<Car> c = new ArrayList();
         try {
-            em.getTransaction().begin();
-            c = em.createNamedQuery("cars.findAll").getResultList();
-            em.getTransaction().commit();
+            c = em.createNamedQuery("Car.findAll").getResultList();
             return c;
         } finally {
             em.close();
