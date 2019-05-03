@@ -6,8 +6,15 @@
 package facade;
 
 import entity.Booking;
+import entity.Car;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  *
@@ -15,54 +22,47 @@ import javax.persistence.EntityManagerFactory;
  */
 public class BookingFacade {
 
+    private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu");
 
-        EntityManagerFactory emf;
-
-        public BookingFacade(EntityManagerFactory emf) {
-            this.emf = emf;
-        }
-
-        EntityManager getEntityManager() {
-            return emf.createEntityManager();
-        }
-
+    public static void main(String[] args) {
+        Date d = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Calendar c = Calendar.getInstance();
+        c.setTime(new Date());
+        c.add(Calendar.DATE, 5);
+        Date StartDato = new Date();
         
-        public Booking deleteBookingByID(int id) {
+        System.out.println(new BookingFacade().BookingFacade(StartDato, c.getTime()));
+        System.out.println(sdf.format(c.getTime()));
+    }
+
+    public List<Car> BookingFacade(Date startDato, Date slutDato) {
         EntityManager em = emf.createEntityManager();
-        
-        try {
-            em.getTransaction().begin();
-            Booking b = em.find(Booking.class, id);
-            em.remove(b);
-            em.getTransaction().commit();
-            return b;
-        } finally {
-            em.close();
+        List<Car> c = new ArrayList();
+        List<Integer> carBooked = new ArrayList();
+        c = em.createNamedQuery("Car.findAll").getResultList();
+        List<Booking> b = em.createNamedQuery("Booking.findAll").getResultList();
+        long slutDatoTal = (long) (slutDato.getTime());
+        long startDatoTal = (long) (startDato.getTime());
+        for (int i = 0; i < b.size(); i++) {
+            long bSlutDato = (long) (b.get(i).getEnddate().getTime());
+            long bStartDato = (long) (b.get(i).getStartdate().getTime());
+
+            if ((bStartDato < slutDatoTal && bSlutDato > startDatoTal)) {
+                carBooked.add(b.get(i).getCarId().getId());
+            }
         }
 
-    }
-        
-        //    public class CustomerFacade {
-//  EntityManagerFactory emf;
-//
-//  public CustomerFacade(EntityManagerFactory emf) {
-//    this.emf = emf;
-//  }
-//
-//  EntityManager getEntityManager(){ 
-//     return emf.createEntityManager();
-//  }
-//
-//  // Use this template for a method that uses the
-//  // EntityManager
-//  public Customer getCustomer(int id){
-//    EntityManager em = getEntityManager();
-//    try{
-//      // Use the entity manager  
-//    }
-//    finally{
-//      em.close();
-//    }
-//  }
+        for (int i = 0; i < carBooked.size(); i++) {
+            for (int j = 0; j < c.size(); j++) {
+                if (carBooked.get(i) == c.get(j).getId()) {
+                    c.remove(c.get(j));
+                }
+            }
+
+        }
+
+        return c;
     }
 
+}

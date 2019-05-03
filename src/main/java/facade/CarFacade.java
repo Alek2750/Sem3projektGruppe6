@@ -16,8 +16,8 @@ public class CarFacade {
 
     
     public static void main(String[] args) {
-       new CarFacade().getAllCars();
-        System.out.println(new CarFacade().getAllCars());
+       new CarFacade().getCarByID(1);
+        System.out.println(new CarFacade().getCarByID(1));
     }
 
     private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu");
@@ -37,10 +37,8 @@ public class CarFacade {
         EntityManager em = emf.createEntityManager();
 
         try {
-            em.getTransaction().begin();
             Car c = em.find(Car.class, id);
 
-            em.getTransaction().commit();
             return c;
 
         } finally {
@@ -48,20 +46,6 @@ public class CarFacade {
         }
     }
 
-    public Car deleteCarByID(int id) {
-        EntityManager em = emf.createEntityManager();
-        
-        try {
-            em.getTransaction().begin();
-            Car c = em.find(Car.class, id);
-            em.remove(c);
-            em.getTransaction().commit();
-            return c;
-        } finally {
-            em.close();
-        }
-
-    }
 //    public class CustomerFacade {
 //  EntityManagerFactory emf;
 //
