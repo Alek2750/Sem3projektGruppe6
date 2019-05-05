@@ -17,7 +17,7 @@ const fuelOptions = {
 const gearOptions = {
     0: 'shift',
     1: 'auto',
-};
+}; // add in later, cuz it wont load the data in the datafield
 
 const labels = [{
     dataField: 'nummerplate', // husk at ændre til numberplate
@@ -32,17 +32,14 @@ const labels = [{
 }, {
     dataField: 'fueltype',
     text: 'fueltype',
-    formatter: cell => fuelOptions[cell],
-    filter: selectFilter({
-        options: fuelOptions
-    })
+    sort: true,
+    filter: textFilter()
+    
 }, {
     dataField: 'gear',
     text: 'Gear',
-    formatter: cell => gearOptions[cell],
-    filter: selectFilter({
-        options: gearOptions
-    })
+    sort: true,
+    filter: textFilter()
 }, {
     dataField: 'year',
     text: 'year-Model',
