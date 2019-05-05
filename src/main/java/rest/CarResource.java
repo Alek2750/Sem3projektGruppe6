@@ -38,7 +38,6 @@ Gson gson = new GsonBuilder().setPrettyPrinting().create();
   @GET
   @Produces(MediaType.APPLICATION_JSON)
   public String allCars() {
-    EntityManager em = PuSelector.getEntityManagerFactory("pu").createEntityManager();
       List<CarDTO> cars = new CarFacade().getAllCars();
       return gson.toJson(cars);
  
@@ -48,7 +47,6 @@ Gson gson = new GsonBuilder().setPrettyPrinting().create();
   @Path("/{id}")
   @Produces(MediaType.APPLICATION_JSON)
   public String CarById(@PathParam("id") int id) {
-    EntityManager em = PuSelector.getEntityManagerFactory("pu").createEntityManager();
       Car cars = new CarFacade().getCarByID(id);
       return gson.toJson(cars);
  
@@ -58,7 +56,6 @@ Gson gson = new GsonBuilder().setPrettyPrinting().create();
   @Path("/{startdate}/{enddate}")
   @Produces(MediaType.APPLICATION_JSON)
   public String CarById(@PathParam("startdate") Date startdate, @PathParam("enddate") Date enddate) {
-    EntityManager em = PuSelector.getEntityManagerFactory("pu").createEntityManager();
       List<Car> cars = new BookingFacade().BookingFacade(startdate, enddate);
       return gson.toJson(cars);
  
