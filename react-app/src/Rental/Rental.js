@@ -1,5 +1,6 @@
 import React, { Component } from "react"
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import BootstrapTable from 'react-bootstrap-table-next';
 import 'react-bootstrap-table2-filter/dist/react-bootstrap-table2-filter.min.css';
 import filterFactory, { textFilter, multiSelectFilter, numberFilter, selectFilter } from 'react-bootstrap-table2-filter';
@@ -68,14 +69,32 @@ const labels = [{
 }];
 
 class Rental extends Component {
-    state = { cars: [], msg: "" }
+    constructor(props){
+        super(props)
+        this.state = { 
+            cars: [],
+             msg: "" 
+            }
+       
+    }
+    
+   
     async componentDidMount() {
-
+        const startdate = new Date(this.props.match.params.startdate).toISOString().slice(0,10).replace(/-/g,"-");
+        const enddate = new Date(this.props.match.params.enddate).toISOString().slice(0,10).replace(/-/g,"-");
+       
+        const newurl = `https://jamalaa.cc/jwtbackend/api/cars/${startdate}/${enddate}`;
+       
         this.setState({ msg: "Loading..." });
-        const cars = await
-            fetch(URL).then(res => res.json());
-
+        const cars = await fetch(newurl).then(res => res.json());
+        console.log(cars)
         this.setState({ cars, msg: "" });
+
+        console.log(this.props)
+        console.log(this.props.match.params.startdate)
+        console.log(this.props.match.params.enddate)
+        console.log(startdate);
+        console.log(enddate);
     }
 
     render() {

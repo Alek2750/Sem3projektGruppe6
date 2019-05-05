@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import { Redirect, Link, NavLink, Route, Switch } from "react-router-dom";
 import Login, {fakeAuth} from "./Login";
 import Home from "./Home"
-import Rental from "./Rental"
+import Rental from "./Rental/Rental"
 import './App.css';
+import Booking from './Rental/Booking';
+import Rentalview from './Rental/Rentalview';
 
 class App extends Component {
   render() {
@@ -17,6 +19,7 @@ class App extends Component {
             <li>
               <NavLink to="/rental">Car Rental</NavLink>
             </li>
+            
             <li>
               <NavLink to="/login">Login</NavLink>
             </li>
@@ -28,7 +31,8 @@ class App extends Component {
 
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/rental" component={Rental} />
+          <Route path="/rental" component={Rentalview} />
+         
           <Route path="/login" component={Login} />
           <PrivateRoute path="/admin" component={Admin} />
         </Switch>
