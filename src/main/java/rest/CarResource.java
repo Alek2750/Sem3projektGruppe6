@@ -47,7 +47,8 @@ Gson gson = new GsonBuilder().setPrettyPrinting().create();
   @Path("/{id}")
   @Produces(MediaType.APPLICATION_JSON)
   public String CarById(@PathParam("id") int id) {
-      Car cars = new CarFacade().getCarByID(id);
+
+      CarDTO cars = new CarFacade().getCarByID(id);
       return gson.toJson(cars);
  
   }

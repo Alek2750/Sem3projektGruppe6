@@ -40,13 +40,13 @@ public class CarFacade {
         }
     }
 
-    public Car getCarByID(int id) {
+    public CarDTO getCarByID(int id) {
         EntityManager em = emf.createEntityManager();
 
         try {
             Car c = em.find(Car.class, id);
-
-            return c;
+            CarDTO c2 = new CarDTO(c);
+            return c2;
 
         } finally {
             em.close();
