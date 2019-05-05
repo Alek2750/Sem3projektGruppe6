@@ -7,6 +7,9 @@ import entity.Car;
 import entity.User;
 import facade.BookingFacade;
 import facade.CarFacade;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.annotation.security.RolesAllowed;
@@ -54,13 +57,24 @@ Gson gson = new GsonBuilder().setPrettyPrinting().create();
   }
   
   @GET
-  @Path("/{startdate}/{enddate}")
-  @Produces(MediaType.APPLICATION_JSON)
-  public String CarById(@PathParam("startdate") Date startdate, @PathParam("enddate") Date enddate) {
-      List<Car> cars = new BookingFacade().BookingFacade(startdate, enddate);
-      return gson.toJson(cars);
- 
-  }
+    @Path("/{startdate}/{enddate}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String CarById(@PathParam("startdate") String startdate1, @PathParam("enddate") String enddate2) throws ParseException {
+
+        Date startdate = new SimpleDateFormat("yyyy-MM-dd").parse(startdate1);
+        Date enddate = new SimpleDateFormat("yyyy-MM-dd").parse(enddate2);
+        List<Car> c = new BookingFacade().BookingFacade(startdate.getTime(), enddate.getTime());
+
+         List<CarDTO> cDTO = new ArrayList();
+         for (int i = 0; i < c.size(); i++) {
+                Car car = c.get(i);
+                CarDTO c2 = new CarDTO(car);
+                cDTO.add(c2);
+            }
+
+        return gson.toJson(cDTO);
+
+    }
 
 //  @GET
 //  @Produces(MediaType.APPLICATION_JSON)

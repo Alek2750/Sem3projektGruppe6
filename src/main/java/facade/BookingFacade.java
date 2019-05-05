@@ -32,23 +32,23 @@ public class BookingFacade {
         c.add(Calendar.DATE, 5);
         Date StartDato = new Date();
         
-        System.out.println(new BookingFacade().BookingFacade(StartDato, c.getTime()));
+        //System.out.println(new BookingFacade().BookingFacade(StartDato, c.getTime()));
         System.out.println(sdf.format(c.getTime()));
     }
 
-    public List<Car> BookingFacade(Date startDato, Date slutDato) {
+    public List<Car> BookingFacade(long startDato, long slutDato) {
         EntityManager em = emf.createEntityManager();
         List<Car> c = new ArrayList();
         List<Integer> carBooked = new ArrayList();
         c = em.createNamedQuery("Car.findAll").getResultList();
         List<Booking> b = em.createNamedQuery("Booking.findAll").getResultList();
-        long slutDatoTal = (long) (slutDato.getTime());
-        long startDatoTal = (long) (startDato.getTime());
+        //long slutDatoTal = (long) (slutDato.getTime());
+        //long startDatoTal = (long) (startDato.getTime());
         for (int i = 0; i < b.size(); i++) {
             long bSlutDato = (long) (b.get(i).getEnddate().getTime());
             long bStartDato = (long) (b.get(i).getStartdate().getTime());
 
-            if ((bStartDato < slutDatoTal && bSlutDato > startDatoTal)) {
+            if ((bStartDato < slutDato && bSlutDato > startDato)) {
                 carBooked.add(b.get(i).getCarId().getId());
             }
         }
