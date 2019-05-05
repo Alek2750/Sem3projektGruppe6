@@ -5,7 +5,7 @@ import 'react-bootstrap-table2-filter/dist/react-bootstrap-table2-filter.min.css
 import filterFactory, { textFilter, multiSelectFilter, numberFilter, selectFilter } from 'react-bootstrap-table2-filter';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 
-const URL = "https://accaroli.com/jwtbackend/api/cars"; //Indsæt URL for API
+const URL = "https://jamalaa.cc/jwtbackend/api/cars"; //Indsæt URL for API, husk at spørger om War fil angående api endpoint
 
 const fuelOptions = {
     0: 'gas',
@@ -20,7 +20,7 @@ const gearOptions = {
 };
 
 const labels = [{
-    dataField: 'numberplate',
+    dataField: 'nummerplate', // husk at ændre til numberplate
     text: 'number plate',
     sort: true,
     filter: textFilter()
@@ -75,10 +75,10 @@ class Rental extends Component {
     async componentDidMount() {
 
         this.setState({ msg: "Loading..." });
-        const residence = await
+        const cars = await
             fetch(URL).then(res => res.json());
 
-        this.setState({ residence, msg: "" });
+        this.setState({ cars, msg: "" });
     }
 
     render() {
