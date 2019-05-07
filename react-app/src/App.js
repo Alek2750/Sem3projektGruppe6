@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Redirect, Link, NavLink, Route, Switch } from "react-router-dom";
-import Login, {fakeAuth} from "./Login";
-import Home from "./Home"
-import Rental from "./Rental/Rental"
+import Login, {fakeAuth} from "./Freelance/Login";
+import Home from "./Freelance/Home";
+import Rental from "./Freelance/Rental"
 import './App.css';
 import Booking from './Rental/Booking';
 import Rentalview from './Rental/Rentalview';
