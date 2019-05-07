@@ -23,7 +23,6 @@ const gearOptions = {
 const labels = [{
     dataField: 'nummerplate', // husk at ændre til numberplate
     text: 'number plate',
-    sort: true,
     filter: textFilter()
 }, {
     dataField: 'brand',
@@ -33,13 +32,11 @@ const labels = [{
 }, {
     dataField: 'fueltype',
     text: 'fueltype',
-    sort: true,
     filter: textFilter()
     
 }, {
     dataField: 'gear',
     text: 'Gear',
-    sort: true,
     filter: textFilter()
 }, {
     dataField: 'year',
