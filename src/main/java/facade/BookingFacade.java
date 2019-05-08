@@ -36,7 +36,7 @@ public class BookingFacade {
         System.out.println(sdf.format(c.getTime()));
     }
 
-    public List<Car> BookingFacade(long startDato, long slutDato) {
+    public List<Car> BookingDate(long startingDate, long endingDate) {
         EntityManager em = emf.createEntityManager();
         List<Car> c = new ArrayList();
         List<Integer> carBooked = new ArrayList();
@@ -45,10 +45,10 @@ public class BookingFacade {
         //long slutDatoTal = (long) (slutDato.getTime());
         //long startDatoTal = (long) (startDato.getTime());
         for (int i = 0; i < b.size(); i++) {
-            long bSlutDato = (long) (b.get(i).getEnddate().getTime());
-            long bStartDato = (long) (b.get(i).getStartdate().getTime());
+            long bEndingDate = (long) (b.get(i).getEnddate().getTime());
+            long bStartingDate = (long) (b.get(i).getStartdate().getTime());
 
-            if ((bStartDato < slutDato && bSlutDato > startDato)) {
+            if ((bStartingDate < endingDate && bEndingDate > startingDate)) {
                 carBooked.add(b.get(i).getCarId().getId());
             }
         }

@@ -63,7 +63,7 @@ Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
         Date startdate = new SimpleDateFormat("yyyy-MM-dd").parse(startdate1);
         Date enddate = new SimpleDateFormat("yyyy-MM-dd").parse(enddate2);
-        List<Car> c = new BookingFacade().BookingFacade(startdate.getTime(), enddate.getTime());
+        List<Car> c = new BookingFacade().BookingDate(startdate.getTime(), enddate.getTime());
 
          List<CarDTO> cDTO = new ArrayList();
          for (int i = 0; i < c.size(); i++) {
