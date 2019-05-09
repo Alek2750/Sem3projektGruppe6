@@ -30,12 +30,27 @@ CREATE table booking(
 id int not null auto_increment,
 startdate date,
 enddate date,
-user_id int,
+user_name int,
 car_id int,
 total_price int,
 primary key (id),
-constraint user_id1 foreign key (user_id) references users(ID)
+constraint user_name1 foreign key (user_name) references users(user_name)
 ON DELETE cascade,
 constraint car_id1 foreign key (car_id) references cars(id)
+ON DELETE cascade
+);
+
+create table user_info(
+id int not null auto_increment,
+first_name varchar(45), 
+last_name varchar(45),
+email varchar(45),
+phone_number int,
+street varchar(45),
+city varchar(45),
+zip_code int,
+user_name varchar(45),
+primary key (id),
+constraint user_name1 foreign key (user_name) references users(user_name)
 ON DELETE cascade
 );
