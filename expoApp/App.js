@@ -20,7 +20,7 @@ export default class App extends React.Component {
         <View style={styles.bottomContainer}>
           <View style={styles.buttonContainer}>
             <Button
-              title="LET'S START"
+              title="Search for cars"
               style={styles.button}
               onPress={() => this.onPress()}
               color="lightblue"
