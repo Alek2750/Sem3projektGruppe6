@@ -33,7 +33,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Car.findAll", query = "SELECT c FROM Car c")
     , @NamedQuery(name = "Car.findById", query = "SELECT c FROM Car c WHERE c.id = :id")
-    , @NamedQuery(name = "Car.findByNummerplate", query = "SELECT c FROM Car c WHERE c.nummerplate = :nummerplate")
+    , @NamedQuery(name = "Car.findByNumberplate", query = "SELECT c FROM Car c WHERE c.numberplate = :numberplate")
     , @NamedQuery(name = "Car.findByBrand", query = "SELECT c FROM Car c WHERE c.brand = :brand")
     , @NamedQuery(name = "Car.findByFueltype", query = "SELECT c FROM Car c WHERE c.fueltype = :fueltype")
     , @NamedQuery(name = "Car.findByGear", query = "SELECT c FROM Car c WHERE c.gear = :gear")
@@ -52,8 +52,8 @@ public class Car implements Serializable {
     @Column(name = "id")
     private Integer id;
     @Size(max = 45)
-    @Column(name = "nummerplate")
-    private String nummerplate;
+    @Column(name = "numberplate")
+    private String numberplate;
     @Size(max = 45)
     @Column(name = "brand")
     private String brand;
@@ -99,11 +99,11 @@ public class Car implements Serializable {
     }
 
     public String getNummerplate() {
-        return nummerplate;
+        return numberplate;
     }
 
     public void setNummerplate(String nummerplate) {
-        this.nummerplate = nummerplate;
+        this.numberplate = nummerplate;
     }
 
     public String getBrand() {
