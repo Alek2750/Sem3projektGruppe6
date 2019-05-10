@@ -1,9 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, Image } from 'react-native';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 import Logo from './assets/car-logo-template.jpg';
+import Rental from './Rental';
 
-export default class App extends React.Component {
+class HomeApp extends React.Component {
+  static navigationOptions = { title: 'Car Rental' };
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
       <View style={styles.topContainer}>
@@ -19,18 +23,23 @@ export default class App extends React.Component {
         
         <View style={styles.bottomContainer}>
           <View style={styles.buttonContainer}>
-            <Button
-              title="Search for cars"
-              style={styles.button}
-              onPress={() => this.onPress()}
-              color="lightblue"
-            />
+          <Button
+        title="Search for cars"
+        onPress={() => this.props.navigation.navigate('rental')}
+      />
           </View>
         </View>
       </View>
     );
   }
 }
+
+const AppNavigator = createStackNavigator({
+  home: { screen: HomeApp },
+  rental: { screen: Rental },
+});
+
+export default createAppContainer(AppNavigator);
 
 const styles = StyleSheet.create({
   container: {
