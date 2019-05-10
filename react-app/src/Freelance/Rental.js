@@ -20,7 +20,7 @@ const gearOptions = {
 }; // add in later, cuz it wont load the data in the datafield
 
 const labels = [{
-    dataField: 'nummerplate', // husk at ændre til numberplate
+    dataField: 'numberplate', // husk at ændre til numberplate
     text: 'number plate',
     filter: textFilter()
 }, {
