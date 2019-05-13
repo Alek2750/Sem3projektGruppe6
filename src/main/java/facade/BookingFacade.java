@@ -5,6 +5,7 @@
  */
 package facade;
 
+import DTO.BookingDTO;
 import entity.Booking;
 import entity.Car;
 import java.text.SimpleDateFormat;
@@ -65,4 +66,38 @@ public class BookingFacade {
         return c;
     }
 
+    public void createBooking(BookingDTO booking) {
+        EntityManager em = emf.createEntityManager();
+
+
+        try{
+        em.getTransaction().begin();
+        em.persist(booking);
+        em.getTransaction().commit();
+        }
+         finally {
+            em.close();
+        }
+    }
+
+    public List<BookingDTO> getBookings(){
+
+
+        EntityManager em = emf.createEntityManager();
+        List<Booking> b = new ArrayList();
+        List<BookingDTO> bDTO = new ArrayList();
+        try {
+            b = em.createNamedQuery("Booking.findAll").getResultList();
+            for (int i = 0; i < b.size(); i++) {
+                Booking booking = b.get(i);
+                BookingDTO b2 = new BookingDTO(booking);
+                bDTO.add(b2);
+            }
+            return bDTO;
+        } finally {
+            em.close();
+        }
+ 
+    }
+    
 }
