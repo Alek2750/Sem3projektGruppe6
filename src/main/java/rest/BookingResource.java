@@ -11,6 +11,7 @@ import com.google.gson.GsonBuilder;
 import entity.Booking;
 import entity.Car;
 import facade.BookingFacade;
+import java.text.ParseException;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -56,7 +57,7 @@ public class BookingResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response postCustomer(String booking) {
+    public Response postCustomer(String booking) throws ParseException {
         Booking b = gson.fromJson(booking, Booking.class);
         Car c = new Car();
         c.setId(b.getCar2Id());
