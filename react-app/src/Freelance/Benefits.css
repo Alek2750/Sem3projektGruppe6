@@ -1,0 +1,26 @@
+#benefits{
+    padding: 70px 0;
+}
+#benefits .benefitTitle{
+    color:black!important;
+    text-align: center;
+    text-transform: uppercase;
+  }
+#benefits .benefitsSubTitle{
+    font-size: .9rem;
+    color:grey;
+    text-align: center;
+}
+#benefits .iconbox{
+    text-align: center;
+    padding: 20px 0;
+}
+#benefits .iconbox h2{
+    font-size: 1.2rem;
+    color:#333;
+    font-weight: 700;
+}
+#benefits .iconbox p{
+    font-size: 1rem;
+    color: #666666;
+}

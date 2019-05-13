@@ -1,0 +1,28 @@
+nav{
+    background-color: rgba(0,0,0,.9);
+    width:100%;
+    display: block;
+    padding: 10px 0;
+}
+nav ul{
+    display: flex;
+    list-style-type: none;
+    margin:0;
+    padding: 0;
+    flex-wrap: wrap;
+}
+nav ul li{
+    padding:5px 15px;
+    color: darkgrey;
+    font-size: .8rem;
+}
+nav ul ul:first-child{
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-start;
+}
+nav ul ul:last-child{
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+}

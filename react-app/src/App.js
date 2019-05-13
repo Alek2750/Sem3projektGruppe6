@@ -6,49 +6,12 @@ import Rental from "./Freelance/Rental"
 import './App.css';
 import Booking from './Rental/Booking';
 import Rentalview from './Rental/Rentalview';
+import Topbar from './Header/Topbar';
+import Navbar from './Header/Navbar'
+import Benefits from './Freelance/Benefits';
+import Footer from './Footer/Footer';
+import {Footerbar} from './Footer/Footer'; 
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        
-          <ul className="header">
-            <li>
-              <NavLink exact to="/">Home</NavLink>
-            </li>
-            <li>
-              <NavLink to="/rental">Car Rental</NavLink>
-            </li>
-            
-            <li>
-              <NavLink to="/login">Login</NavLink>
-            </li>
-            <li>
-              <NavLink to="/admin">Admin area</NavLink>
-            </li>
-          </ul>
-       
-
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/rental" component={Rentalview} />
-         
-          <Route path="/login" component={Login} />
-          <PrivateRoute path="/admin" component={Admin} />
-        </Switch>
-      </div>
-    );
-  }
-}
-
-//Home component
-/*const Home = props => (
-  <div>
-    <h2>Home {console.log(props)}</h2>
-  </div>
-);*/
-
-//Admin component
 const Admin = ({ match }) => {
   return (
     <div>
@@ -73,6 +36,33 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
         )}
     />
   );
-};
+}; 
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <Home/>
+        {/* <Switch>
+          <Route exact path="/rental" component={Rentalview} />
+          <Route exact path="/login" component={Login} />
+          <PrivateRoute exact path="/admin" component={Admin} />
+          {/* <Route path="/" component={Home} /> 
+        </Switch> */}
+        <Benefits/>
+        <Footer/>
+        <Footerbar/>
+        
+      </div>
+    );
+  }
+}
+
+//Home component
+/*const Home = props => (
+  <div>
+    <h2>Home {console.log(props)}</h2>
+  </div>
+);*/
+
 
 export default App;

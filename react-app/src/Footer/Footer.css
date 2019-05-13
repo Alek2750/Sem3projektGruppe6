@@ -1,0 +1,28 @@
+footer{
+    background: #35353C;
+    padding:30px 0;
+    color:#F4F4F4;
+}
+footer h6{
+    color:#F4F4F4;
+    font-size: .9rem;
+}
+footer a{
+    color:#F4F4F4;
+    display: block;
+    font-size:.9rem;
+}
+footer a:hover{
+    text-decoration: none;
+    color:#F4F4F4;
+}
+.footerbar{
+    background-color: #111119;
+}
+.footerbar a{
+    display: inline-block;
+    padding-right: 20px;
+}
+.footerbar img{
+    width: 30px;
+}

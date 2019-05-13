@@ -1,0 +1,39 @@
+#welcome-section {
+    height: 100%;
+    width: 100%;
+    background-image: url(../images/slide5.jpg);
+    background-position: center;
+    background-size: cover;
+  }
+  .container1{
+    max-width:82%;
+    margin: 0 auto;
+    margin-top: 16rem;
+    margin-bottom: 8rem;
+  }
+  
+  #welcome-section p {
+    font-size: 1.1rem;
+    color: white;
+  }
+  .alpha{
+    background: rgba(0,0,0,0.6)!important;
+    padding: 35px 30px;
+  }
+  .auto{
+    margin-bottom: 5px;
+  }
+  .homeBtn{
+    background: #ff7e19;
+    border:none;
+    padding:12px 40px;
+    color:white;
+    font-weight: 700;
+    width:100%;
+    margin:8px;
+    transition: .5s all;
+  }
+  .homeBtn:hover{
+    background: #ec7b25;
+  }
+ 

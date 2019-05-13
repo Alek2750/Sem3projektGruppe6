@@ -1,0 +1,13 @@
+.navbar{
+    background: rgba(0, 0, 2, 0.5);
+}
+.navbar-toggler{
+    border:1px solid white;
+}
+.navbar-toggler-icon{
+    display: block;
+    width: 1.5em;
+    border-bottom: 1px solid white;
+    margin: 5px;
+    height:1px;
+}

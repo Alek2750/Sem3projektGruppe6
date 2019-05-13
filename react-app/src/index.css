@@ -8,6 +8,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* .container{
+  width:90%;
+  margin:0 auto;
+} */
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -18,7 +23,6 @@ ul.header {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
  }
  
  ul.header li { float: left;}
@@ -32,4 +36,7 @@ ul.header {
  }
  ul.header li a:hover:not(.active) { background-color: #111;}
  
- .active { background-color: #4CAF50;}
+ .active { 
+   background-color: #ff7e19;
+  border-radius: 5px;
+  }

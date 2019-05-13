@@ -1,0 +1,30 @@
+.login{
+    cursor: pointer;
+}
+.MuiDialog-paperWidthSm-9{
+    width: 60%!important;
+    max-width: 965px!important;
+}
+.MuiFormControl-marginNormal-21{
+    display: block!important;
+}
+.MuiInputBase-root-44{
+    width: 100%!important;
+}
+.bg-orange{
+    background: #ff7e19!important;
+}
+.MuiTypography-title-108{
+    color:white!important;
+}
+ul{
+    list-style: none;
+    color:white;
+}
+ul li i{
+    font-size: 15px!important;
+}
+
+.text-white h2{
+    color: white !important;
+}
