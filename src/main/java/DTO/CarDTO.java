@@ -14,7 +14,7 @@ import entity.Car;
 public class CarDTO {
     
     private Integer id;
-    private String nummerplate;
+    private String numberplate;
     private String brand;
     private String fueltype;
     private String gear;
@@ -29,7 +29,7 @@ public class CarDTO {
 
     public CarDTO(Car car) {
         this.id = car.getId();
-        this.nummerplate = car.getNummerplate();
+        this.numberplate = car.getNummerplate();
         this.brand = car.getBrand();
         this.fueltype = car.getFueltype();
         this.gear = car.getGear();
@@ -52,11 +52,11 @@ public class CarDTO {
     }
 
     public String getNummerplate() {
-        return nummerplate;
+        return numberplate;
     }
 
     public void setNummerplate(String nummerplate) {
-        this.nummerplate = nummerplate;
+        this.numberplate = nummerplate;
     }
 
     public String getBrand() {
@@ -141,7 +141,7 @@ public class CarDTO {
 
     @Override
     public String toString() {
-        return "CarDTO{" + "id=" + id + ", nummerplate=" + nummerplate + ", brand=" + brand + ", fueltype=" + fueltype + ", gear=" + gear + ", year=" + year + ", cartype=" + cartype + ", seats=" + seats + ", doors=" + doors + ", price=" + price + ", img=" + img + ", locationId=" + locationId + '}';
+        return "CarDTO{" + "id=" + id + ", numberplate=" + numberplate + ", brand=" + brand + ", fueltype=" + fueltype + ", gear=" + gear + ", year=" + year + ", cartype=" + cartype + ", seats=" + seats + ", doors=" + doors + ", price=" + price + ", img=" + img + ", locationId=" + locationId + '}';
     }
 
     
