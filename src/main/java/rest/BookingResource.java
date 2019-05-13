@@ -8,6 +8,8 @@ package rest;
 import DTO.BookingDTO;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import entity.Booking;
+import entity.Car;
 import facade.BookingFacade;
 import java.util.List;
 import javax.ws.rs.Consumes;
@@ -55,8 +57,10 @@ public class BookingResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response postCustomer(String booking) {
-        BookingDTO b = gson.fromJson(booking, BookingDTO.class);
-
+        Booking b = gson.fromJson(booking, Booking.class);
+        Car c = new Car();
+        c.setId(b.getCar2Id());
+        b.setCarId(c);
         new BookingFacade().createBooking(b);
 
         return Response.ok().entity(gson.toJson(b)).build();

@@ -8,6 +8,7 @@ package facade;
 import DTO.BookingDTO;
 import entity.Booking;
 import entity.Car;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -25,7 +26,7 @@ public class BookingFacade {
 
     private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu");
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         Date d = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         Calendar c = Calendar.getInstance();
@@ -35,6 +36,15 @@ public class BookingFacade {
         
         //System.out.println(new BookingFacade().BookingFacade(StartDato, c.getTime()));
         System.out.println(sdf.format(c.getTime()));
+        Booking b = new Booking();
+        Car c1 = new Car();
+        c1.setId(8);
+        b.setCarId(c1);
+        b.setTotalPrice(2000);
+        b.setStartdate(StartDato);
+        b.setEnddate(c.getTime());
+        BookingDTO bdto = new BookingDTO(b);
+        new BookingFacade().createBooking(b);
     }
 
     public List<Car> BookingDate(long startingDate, long endingDate) {
@@ -66,10 +76,13 @@ public class BookingFacade {
         return c;
     }
 
-    public void createBooking(BookingDTO booking) {
+    public void createBooking(Booking booking) throws ParseException {
         EntityManager em = emf.createEntityManager();
 
-
+        Date startdate = new SimpleDateFormat("yyyy-MM-dd").parse(booking.getStartdate2());
+        Date enddate = new SimpleDateFormat("yyyy-MM-dd").parse(booking.getEnddate2());
+        booking.setStartdate(startdate);
+        booking.setEnddate(enddate);
         try{
         em.getTransaction().begin();
         em.persist(booking);

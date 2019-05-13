@@ -39,7 +39,7 @@ public class Booking implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
@@ -54,6 +54,35 @@ public class Booking implements Serializable {
     @JoinColumn(name = "car_id", referencedColumnName = "id")
     @ManyToOne
     private Car carId;
+    
+    private int car2Id;
+    
+    private String startdate2;
+    private String enddate2;
+
+    public String getStartdate2() {
+        return startdate2;
+    }
+
+    public void setStartdate2(String startdate2) {
+        this.startdate2 = startdate2;
+    }
+
+    public String getEnddate2() {
+        return enddate2;
+    }
+
+    public void setEnddate2(String enddate2) {
+        this.enddate2 = enddate2;
+    }
+
+    public int getCar2Id() {
+        return car2Id;
+    }
+
+    public void setCar2Id(int car2Id) {
+        this.car2Id = car2Id;
+    }
 
     public Booking() {
     }

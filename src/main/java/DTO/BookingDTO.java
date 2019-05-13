@@ -22,7 +22,7 @@ public class BookingDTO {
     private Integer totalPrice;
 
     public BookingDTO(Booking booking) {
-        this.id = booking.getId();
+        //this.id = booking.getId();
         this.startDate = booking.getStartdate();
         this.endDate = booking.getEnddate();
         this.carId = booking.getCarId().getId();
