@@ -1,8 +1,8 @@
 import React, { Component } from "react"
 // import './Topbar.css';
 import { Redirect, Link, NavLink, Switch, Route} from "react-router-dom";
-import Home from "../Freelance/Home";
-import Rental from "../Freelance/Rental"
+import Home from "../Rental/Home";
+import Rental from "../Rental/Rental"
 import Login, {fakeAuth} from "../Freelance/Login"
 import './Navbar.css';
 import Booking from '../Rental/Booking';
@@ -48,13 +48,14 @@ class Navbar extends Component {
                     <span class="navbar-toggler-icon"></span>
                     <span class="navbar-toggler-icon"></span>
                   </button>
+                  
                   <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                       <li class="nav-item active">
                         <NavLink class="nav-link text-white" exact to="" href="#">Home <span class="sr-only">(current)</span></NavLink>
                       </li>
                       <li class="nav-item">
-                        <NavLink class="nav-link text-white" to="/" href="#">Car Rental</NavLink>
+                        <NavLink class="nav-link text-white" to="/rental" href="rental">Car Rental</NavLink>
                       </li>
                       <li class="nav-item">
                         <NavLink class="nav-link text-white" to="/" href="#"><LoginModel/></NavLink>
@@ -63,7 +64,8 @@ class Navbar extends Component {
                         <NavLink class="nav-link text-white" to="/" href="#">Admin Area</NavLink>
                       </li>
                     </ul>
-                  </div>                
+                  </div> 
+                               
                 </div>
               </nav>
           </div>

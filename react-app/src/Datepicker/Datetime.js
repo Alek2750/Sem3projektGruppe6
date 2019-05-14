@@ -25,7 +25,7 @@ function DateAndTimePickers(props) {
         id="datetime-local"
         label=""
         type="datetime-local"
-        defaultValue="2017-05-24T10:30"
+        defaultValue="2019-05-24"
         className={classes.textField}
         InputLabelProps={{
           shrink: true,
