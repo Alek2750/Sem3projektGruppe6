@@ -1,3 +1,5 @@
+import queryString from "query-string";
+
 const URL = "https://accaroli.com/jwtbackend";
 
 function handleHttpErrors(res) {
@@ -57,7 +59,22 @@ class ApiFacade {
         return fetch(URL + "/api/info/user", options).then(handleHttpErrors);
     }
 
+    postData(url, data) {
+        // Default options are marked with *
+          return fetch(url, {
+              method: 'POST', // *GET, POST, PUT, DELETE, etc.
+              headers: {
+                  'Content-Type': 'application/json',
+                  // 'Content-Type': 'application/x-www-form-urlencoded',
+              },
+              
+              body: JSON.stringify(data), // body data type must match "Content-Type" header
+          })
+          .then(response => response.json()); // parses JSON response into native Javascript objects 
+      }
 
 }
+
+
 const facade = new ApiFacade();
 export default facade;

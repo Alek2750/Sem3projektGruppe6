@@ -4,8 +4,9 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import 'react-bootstrap-table2-filter/dist/react-bootstrap-table2-filter.min.css';
 import filterFactory, { textFilter, multiSelectFilter, numberFilter, selectFilter } from 'react-bootstrap-table2-filter';
 import paginationFactory from 'react-bootstrap-table2-paginator';
+import apiFacade from "./../apiFacade";
 
-const URL = "https://jamalaa.cc/jwtbackend/api/cars";
+const URL = "https://jamalaa.cc/jwtbackend/api/cars"; //Indsæt URL for API, husk at spørger om War fil angående api endpoint
 
 const fuelOptions = {
     0: 'gas',
@@ -17,10 +18,10 @@ const fuelOptions = {
 const gearOptions = {
     0: 'shift',
     1: 'auto',
-}; 
+}; // add in later, cuz it wont load the data in the datafield
 
 const labels = [{
-    dataField: 'nummerplate', 
+    dataField: 'numberplate', // husk at ændre til numberplate
     text: 'number plate',
     filter: textFilter()
 }, {
@@ -69,7 +70,14 @@ class Rental extends Component {
         super(props)
         this.state = { 
             cars: [],
-             msg: "" 
+             msg: "",
+             booking: {
+                 startdate2: "2019-08-20",
+                enddate2: "2019-08-29", 
+                car2Id: 9,
+                totalPrice: 12000
+             }
+
             }
        
     }
@@ -79,8 +87,12 @@ class Rental extends Component {
         const startdate = new Date(this.props.match.params.startdate).toISOString().slice(0,10).replace(/-/g,"-");
         const enddate = new Date(this.props.match.params.enddate).toISOString().slice(0,10).replace(/-/g,"-");
        
-        const newurl = `https://jamalaa.cc/jwtbackend/api/cars/${startdate}/${enddate}`;
-       
+        const newurl = `https://johachim.dk/jwtbackend/api/cars/${startdate}/${enddate}`;
+
+        apiFacade.postData("https://johachim.dk/jwtbackend/api/booking",this.state.booking).then(response => response.json())
+      .catch(error => console.error('Error:', error))
+      .then(response => console.log('Success:', JSON.stringify(response)));
+
         this.setState({ msg: "Loading..." });
         const cars = await fetch(newurl).then(res => res.json());
         console.log(cars)
