@@ -9,19 +9,19 @@ class Footer extends Component {
                     <div className="row">
                         <div className="col-xs-12 col-sm-6 col-md-4 col-lg-2 mb-3">
                             <h6>SIXT SERVICES</h6>
-                              <a href="">Car Rental Reservation</a>
-                              <a href="">Rent a Truck</a>
-                              <a href="">Rental Car Locations</a>
+                              <a href="Home">Car Rental Reservation</a>
+                              <a href="Home">Rent a Truck</a>
+                              <a href="Home">Rental Car Locations</a>
                         </div>
                         <div className="col-xs-12 col-sm-6 col-md-4 col-lg-2 mb-3">
                             <h6>OUR VEHICLES</h6>
-                            <a href="">Fleet Overview</a>
+                            <a href="Home">Fleet Overview</a>
                         </div>
                         <div className="col-xs-12 col-sm-6 col-md-4 col-lg-2 mb-3">
                             <h6>RENTAL SERVICES</h6>
-                            <a href="">Rental Information</a>
-                            <a href="">Sixt Card</a>
-                            <a href="">Customer Center</a>
+                            <a href="Home">Rental Information</a>
+                            <a href="Home">Sixt Card</a>
+                            <a href="Home">Customer Center</a>
                         </div>
                         <div className="col-xs-12 col-sm-6 col-md-4 col-lg-2 mb-3">
                             <h6>ABOUT SIXT</h6>
@@ -29,12 +29,12 @@ class Footer extends Component {
                         </div>
                         <div className="col-xs-12 col-sm-6 col-md-4 col-lg-2 mb-3">
                             <h6>ONLINE CHECK-IN</h6>
-                            <a href="">Sixt Online Check-In</a>
+                            <a href="Home">Sixt Online Check-In</a>
                         </div>
                         <div className="col-xs-12 col-sm-6 col-md-4 col-lg-2 mb-3">
                             <h6>MOBILE RESERVATION</h6>
-                            <a href="">iPhone & iPad</a>
-                            <a href="">Android</a>
+                            <a href="Home">iPhone & iPad</a>
+                            <a href="Home">Android</a>
                         </div>
                     </div>
                </div>
@@ -52,16 +52,16 @@ export const Footerbar = () =>{
             <div className="container">
                 <div className="row">
                     <div className="col-md-9">
-                        <a href="">Contact</a>
-                        <a href=""> Career with Sixt</a>
-                        <a href="">Sixt Group</a>
-                        <a href="">About Sixt</a>
-                        <a href="">Data Policy</a>
-                        <a href="">T&C</a>
-                        <a href="">Privacy Policy</a>
-                        <a href=""> PAI</a>
-                        <a href="">CSR</a>
-                        <a href="">Franchise</a>
+                        <a href="Home">Contact</a>
+                        <a href="Home"> Career with Sixt</a>
+                        <a href="Home">Sixt Group</a>
+                        <a href="Home">About Sixt</a>
+                        <a href="Home">Data Policy</a>
+                        <a href="Home">T&C</a>
+                        <a href="Home">Privacy Policy</a>
+                        <a href="Home"> PAI</a>
+                        <a href="Home">CSR</a>
+                        <a href="Home">Franchise</a>
                     </div>
                     <div className="col-md-3">
                         <i class="fab fa-facebook" style={{fontSize:"25px",paddingRight:'10px',cursor:"pointer"}}></i>

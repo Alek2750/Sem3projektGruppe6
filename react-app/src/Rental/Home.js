@@ -7,8 +7,8 @@ import Login, { fakeAuth } from "../Freelance/Login"
 //import Rentalview from '../Rental/Rentalview';
 //import DatePickers from "../Datepicker/Datepicker"
 //import TimePickers from "../Datepicker/Timepicker"
-import NativeSelects from "../Datepicker/Select"
-import DateAndTimePickers from "../Datepicker/Datetime"
+//import NativeSelects from "../Datepicker/Select"
+//import DateAndTimePickers from "../Datepicker/Datetime"
 import './Home.css';
 import { Button } from 'react-bootstrap'
 import DatePicker from 'react-datepicker'
@@ -80,7 +80,7 @@ class Home extends Component {
 
           <div className="container1">
             <div className="alpha">
-              <h2 class="secTitle">search for a car</h2>
+              <h2 className="secTitle">search for a car</h2>
               <div className="row no-gutters">
                 <div className="col-lg-4">
                   {/* <NativeSelects />

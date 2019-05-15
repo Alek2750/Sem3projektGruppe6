@@ -40,7 +40,7 @@ export default class LoginModel extends React.Component {
                 <li><i className="fas fa-check pr-3" ></i>free vehicle upgrades</li>
                 <li><i className="fas fa-check pr-3" ></i>Express Check-In</li>
                 <li><i className="fas fa-check pr-3" ></i>bonus points/ miles vouchers</li>
-                <li><i className="fas fa-check pr-3" ></i>  <a href="" className="text-white">and many other benefits</a></li>
+                <li><i className="fas fa-check pr-3" ></i>  <a href="Home" className="text-white">and many other benefits</a></li>
               </ul>
               <button className="btn btn-outline-light btn-lg btn-block">Register</button>
 

@@ -1,12 +1,12 @@
 import React, { Component } from "react"
 // import './Topbar.css';
-import { Redirect, Link, NavLink, Switch, Route} from "react-router-dom";
-import Home from "../Rental/Home";
-import Rental from "../Rental/Rental"
+import { Redirect, NavLink, Route} from "react-router-dom";
+//import Home from "../Rental/Home";
+//import Rental from "../Rental/Rental"
 import Login, {fakeAuth} from "../Freelance/Login"
 import './Navbar.css';
-import Booking from '../Rental/Booking';
-import Rentalview from '../Rental/Rentalview';
+//import Booking from '../Rental/Booking';
+//import Rentalview from '../Rental/Rentalview';
 import LoginModel from '../LoginRegistrationModel/Loginmodel';
 
 
@@ -41,26 +41,26 @@ class Navbar extends Component {
     render() {
         return (
           <div>
-              <nav class="navbar navbar-expand-lg ">
+              <nav className="navbar navbar-expand-lg ">
                 <div className="container">
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                    <span class="navbar-toggler-icon"></span>
-                    <span class="navbar-toggler-icon"></span>
+                  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                    <span className="navbar-toggler-icon"></span>
+                    <span className="navbar-toggler-icon"></span>
                   </button>
                   
-                  <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                      <li class="nav-item active">
+                  <div className="collapse navbar-collapse" id="navbarNav">
+                    <ul className="navbar-nav">
+                      <li className="nav-item active">
                         <NavLink class="nav-link text-white" exact to="" href="#">Home <span class="sr-only">(current)</span></NavLink>
                       </li>
-                      <li class="nav-item">
+                      <li className="nav-item">
                         <NavLink class="nav-link text-white" to="/rental" href="rental">Car Rental</NavLink>
                       </li>
-                      <li class="nav-item">
+                      <li className="nav-item">
                         <NavLink class="nav-link text-white" to="/" href="#"><LoginModel/></NavLink>
                       </li>
-                      <li class="nav-item">
+                      <li className="nav-item">
                         <NavLink class="nav-link text-white" to="/" href="#">Admin Area</NavLink>
                       </li>
                     </ul>

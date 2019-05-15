@@ -2,14 +2,14 @@ import React, { Component } from "react"
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import BootstrapTable from 'react-bootstrap-table-next';
 import 'react-bootstrap-table2-filter/dist/react-bootstrap-table2-filter.min.css';
-import filterFactory, { textFilter, multiSelectFilter, numberFilter, selectFilter } from 'react-bootstrap-table2-filter';
+import filterFactory, { textFilter /* multiSelectFilter, numberFilter, selectFilter */ } from 'react-bootstrap-table2-filter';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import apiFacade from "../apiFacade";
 import Navbar from '../Header/Navbar'
 
-const URL = "https://jamalaa.cc/jwtbackend/api/cars"; //Indsæt URL for API, husk at spørger om War fil angående api endpoint
+//const URL = "https://jamalaa.cc/jwtbackend/api/cars"; //Indsæt URL for API, husk at spørger om War fil angående api endpoint
 
-const fuelOptions = {
+/* const fuelOptions = {
     0: 'gas',
     1: 'diesel',
     2: 'electricity',
@@ -19,10 +19,10 @@ const fuelOptions = {
 const gearOptions = {
     0: 'shift',
     1: 'auto',
-}; // add in later, cuz it wont load the data in the datafield
+}; */ // add in later, cuz it wont load the data in the datafield
 
 const labels = [{
-    dataField: 'numberplate', // husk at ændre til numberplate
+    dataField: 'numberplate', 
     text: 'number plate',
     filter: textFilter()
 }, {
@@ -70,7 +70,7 @@ const labels = [{
 ];
 
 const selectRow = {
-    mode: 'button',
+    mode: 'checkbox',
     clickToSelect: true,
     clickToExpand: true
   };
@@ -80,8 +80,10 @@ const selectRow = {
     renderer: row => (
       <div>
         <p>{ `This Expand row is belong to rowKey ${row.id}` }</p>
+        <p>If you would like to rent this vehicle, just press the button below that says Rent</p>
         <p>You can render anything here, also you can add additional data on every row object</p>
         <p>expandRow.renderer callback will pass the origin row object to you</p>
+        <button>Rent this vehicle</button>
       </div>
     )
   };

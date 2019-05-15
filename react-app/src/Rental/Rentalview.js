@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {Switch, Route } from 'react-router-dom';
 import Booking from './Booking';
 import Rental from './Rental';
-import Home from './Home';
+//import Home from './Home';
 
 export default class Rentalview extends Component {
   render() {

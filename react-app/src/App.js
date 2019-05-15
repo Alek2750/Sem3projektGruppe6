@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { Redirect, Link, NavLink, Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import Login, { fakeAuth } from "./Freelance/Login";
 import Home from "./Rental/Home";
 import Rental from "./Rental/Rental"
 import './App.css';
-import Booking from './Rental/Booking';
+//import Booking from './Rental/Booking';
 import Rentalview from './Rental/Rentalview';
-import Topbar from './Header/Topbar';
-import Navbar from './Header/Navbar'
+//import Topbar from './Header/Topbar';
+//import Navbar from './Header/Navbar'
 import Benefits from './Freelance/Benefits';
 import Footer from './Footer/Footer';
 import { Footerbar } from './Footer/Footer';
